@@ -1,0 +1,57 @@
+<div class="row">
+   <div class="col-md-12">
+     <button routerLink="/registration" class="btn btn-success">Add User</button>
+   </div>
+</div>
+<div class="row">
+        <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <!-- <h3 class="panel-title">Developers</h3> -->
+                        <div class="pull-right">
+                            <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                                <i class="glyphicon glyphicon-filter"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+                    </div>
+                    <table class="table table-hover" id="dev-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th> Name</th>
+                                <th>Email ID</th>
+                                <th>Mobile Number</th>
+                                <th>Company Name</th>
+                                <th>Company URL</th>
+                                <th>Date</th>
+                                <th>Company Type</th>
+                                <th>Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let userDetail of userDetails; let i=index; ">
+                                <td>{{ i+1}}</td>
+                                <td>{{ userDetail?.name }}</td>
+                                <td><a href="">{{ userDetail?.email }}</a></td>
+                                <td>{{ userDetail?.phone }}</td>
+                                <td>{{ userDetail?.company_name }}</td>
+                                <td><a href="">{{ userDetail?.company_url }}</a></td>
+                                <td>{{ userDetail?.date }}</td>
+                                <td>{{ userDetail?.company_type }}</td>
+                                <td>{{ userDetail?.description }}</td>
+                                <td><button  [routerLink]="['/edit',userDetail.id]" class="btn btn-primary"><i class="fa fa-edit" style="font-size:24px"></i>
+                                </button>
+                                    <button (click)="delete(userDetail.id)" class="btn btn-danger "><i class="fa fa-trash" style="font-size:24px"></i>
+                                    </button></td>
+                            </tr>
+                            
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+</div>

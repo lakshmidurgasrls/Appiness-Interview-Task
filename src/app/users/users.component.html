@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="col-md-12">
+      <div class="form-area">  
+          <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+          <br style="clear:both">
+               <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
+              <div class="form-group">
+                  <label for="username" class="control-label">Username</label>
+                  <input type="text" class="form-control" formControlName="name" placeholder="Please Enter Your Name" >
+              <div *ngIf="!userForm.get('name').valid && userForm.get('name').touched">
+                  <span  *ngIf="userForm.get('name').errors.required " >
+                      Please enter your Name 
+                  </span>
+                  <span  *ngIf="userForm.get('name').errors.minlength">
+                      Please enter mini 3 letters
+                  </span>
+                  <span  *ngIf="userForm.get('name').errors.maxlength">
+                      Please enter max 10 letters 
+                  </span>
+
+              </div>
+             
+            </div>
+            <div class="form-group">
+                <label for="email" class="control-label">Email</label>
+              <input type="email" class="form-control" formControlName="email" placeholder="Please Enter Your Email" >
+              <div *ngIf="!userForm.get('email').valid && userForm.get('email').touched">
+                  <span  *ngIf="userForm.get('email').errors.required ">
+                      Please enter your email
+                  </span>
+                  <span  *ngIf="userForm.get('email').errors.email">
+                      Please enter Valid email 
+                  </span>
+              </div>
+
+            </div>
+            <div class="form-group">
+                <label for="phone no" class="control-label">phone number</label>
+              <input type="number" class="form-control" formControlName="phone" placeholder="Please Enter Your Phone Noumber">
+             <div *ngIf="!userForm.get('phone').valid && userForm.get('phone').touched" style="color: red;"> 
+              
+
+                <span *ngIf="userForm.get('phone').errors.required">
+                    Please enter your phone number
+                </span>
+                <span  *ngIf="userForm.get('phone').errors.minlength">
+                    Please enter mini 5 letters
+                </span>
+                <span  *ngIf="userForm.get('phone').errors.maxlength">
+                    Please enter max 50 letters
+                </span>
+             </div>
+            
+            </div>
+            <div class="form-group">
+                <label for="companyname" class="control-label">Companyname</label>
+
+                <input type="text" class="form-control" formControlName="company_name" placeholder="Please Enter Your Company Url" >
+                <div *ngIf="!userForm.get('company_name').valid && userForm.get('company_name').touched"> 
+                  <span  *ngIf="userForm.get('company_name').errors.required">
+                      Please enter company name
+                  </span>
+                    <span  *ngIf="userForm.get('company_name').errors.minlength">
+                          Please enter mini 5 letters
+                      </span>
+                      <span  *ngIf="userForm.get('company_name').errors.maxlength">
+                          Please enter max 50 letters
+                      </span>
+                  </div>
+                  
+              </div>
+              <div class="form-group">
+                  <label for="date" class="control-label">Date</label>
+                <input type="date" class="form-control" formControlName="date" placeholder="Please  select the date" >
+                <div *ngIf="!userForm.get('date').valid && userForm.get('date').touched">
+                    <span  *ngIf="userForm.get('date').errors.required ">
+                        Please enter your date
+                    </span>
+                   
+                </div>
+  
+              </div>
+              <div class="form-group">
+                  <label for="time" class="control-label">Time</label>
+                <input type="time" class="form-control" formControlName="time" placeholder="Please  select the date" >
+                <div *ngIf="!userForm.get('time').valid && userForm.get('time').touched">
+                    <span  *ngIf="userForm.get('time').errors.required ">
+                        Please enter your time
+                    </span>
+                   
+                </div>
+  
+              </div>
+
+            <div class="form-group">
+                <label for="url" class="control-label">your company url</label>
+              <input type="url" class="form-control" formControlName="company_url" placeholder="Please Enter Your Company Url" >
+              <span *ngIf="!userForm.get('company_url').valid && userForm.get('company_url').touched">Please enter your Company Url</span>
+            </div>
+            <div class="form-group">
+                <label for="username" class="control-label">Description</label>
+
+            <textarea class="form-control" type="textarea" formControlName="description"  rows="7" placeholder="Please Enter The description"></textarea>
+            <span *ngIf="!userForm.get('description').valid && userForm.get('description').touched">Please enter your Description</span>
+                  
+            </div>
+            <div class="form-group">
+                <label for="select" class="control-label">Select your company Level</label>
+              <select class="form-control" formControlName="company_level">
+                <option [value]="defult" >  Please Select the Your Company Level </option>
+                <option [value]="Level-1">   Level-1  </option>
+                <option [value]="Level-2">   Level-2  </option>
+                <option [value]="Level-3">   Level-3  </option>
+                <option [value]="Level-4">   Level-4  </option>
+                <option [value]="Level-5">   Level-5  </option>
+               
+              </select>
+              
+              <span *ngIf="!userForm.get('name').valid && userForm.get('name').touched">
+                Please select your company level
+              </span>
+
+            </div>
+          <button type="submit">Submit Form</button>
+          </form>
+      </div>
+  </div>
+  </div>
